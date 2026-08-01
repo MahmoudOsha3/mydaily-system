@@ -7,9 +7,6 @@ use Illuminate\Support\Facades\Log;
 
 class BrevoMailer
 {
-    /**
-     * بيبعت إيميل فيه كود الـ OTP عن طريق Brevo Transactional Email API.
-     */
     public function sendOtp(string $toEmail, string $code): bool
     {
         $response = Http::withHeaders([

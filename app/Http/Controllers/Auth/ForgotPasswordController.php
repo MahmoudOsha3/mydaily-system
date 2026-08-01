@@ -24,7 +24,6 @@ class ForgotPasswordController extends Controller
 
         $user = User::where('email', $data['email'])->first();
 
-        // ما بنفصحش إذا الإيميل ده موجود ولا لأ، عشان نحافظ على خصوصية الحساب
         if ($user) {
             $code = (string) random_int(100000, 999999);
 
@@ -43,7 +42,7 @@ class ForgotPasswordController extends Controller
 
         return redirect()
             ->route('password.reset.form', ['email' => $data['email']])
-            ->with('success', 'لو الإيميل ده متسجل عندنا، هيوصلك كود التحقق حالًا.');
+            ->with('success', 'تم ارسال الكود بنجاح الي الايميل الخاص بك');
     }
 
     public function showResetForm(Request $request)

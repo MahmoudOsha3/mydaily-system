@@ -17,7 +17,7 @@ class DashboardController extends Controller
         $monthTasks = Task::whereBetween('date', [$startOfMonth, $today])->get();
 
         $endOfMonth = $today->copy()->endOfMonth();
-        $transactions = Transaction::whereBetween('date', [$startOfMonth, $endOfMonth])->get();
+        $transactions = Transaction::get();
 
         return view('pages.dashboard', [
             'today' => $today,
